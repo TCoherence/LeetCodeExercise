@@ -16,7 +16,9 @@ When I lose the condition of array sorted, the only solution comes to my mind is
 I totally forget HashMap I just have learned a few hours ago. More work need to be done.
 */
 
-My brute solution:  33ms
+```java
+// My first brute solution:  33ms
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         if(nums == null || nums.length == 0) return null;
@@ -31,7 +33,7 @@ class Solution {
     }
 }
 
-After using HashMap:  8ms
+// After using HashMap:  8ms
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         if(nums == null || nums.length < 2) return null;
@@ -52,3 +54,4 @@ class Solution {
         return ret;
     }
 }
+```
