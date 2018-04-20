@@ -1,0 +1,16 @@
+class Solution {
+    public int reverse(int x) {
+        int res = 0, newres = 0;
+        int tail = 0;
+        while( x != 0){
+            tail = x % 10;
+            newres = res * 10 + tail;
+            if(newres / 10 != res){
+                return 0;
+            }
+            res = newres;
+            x = x / 10;
+        }
+        return res;
+    }
+}
