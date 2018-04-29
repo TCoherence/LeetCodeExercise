@@ -1,0 +1,42 @@
+class Solution {
+    public String toGoatLatin(String S) {
+        if ( S == null || S.length() == 0 ) return "";
+        StringBuilder sb = new StringBuilder();
+        char[] s = S.toCharArray();
+        StringBuilder lastappend = new StringBuilder("a");
+        int len = s.length;
+        for ( int i = 0; i < len; ) {
+            if( s[i] == ' ') {
+                lastappend.append('a');
+                i++;
+                continue;
+            }
+            else if (   s[i] == 'a' ||  s[i] == 'A' ||
+                        s[i] == 'e' ||  s[i] == 'E' ||
+                        s[i] == 'i' ||  s[i] == 'I' ||
+                        s[i] == 'o' ||  s[i] == 'O' ||
+                        s[i] == 'u' ||  s[i] == 'U'){
+                while ( i < len && s[i] != ' ' ) {
+                    sb.append(s[i]);
+                    i++;
+                }
+                sb.append("ma");
+                sb.append(lastappend.toString());
+                if ( i != len ) sb.append(' ');
+            }
+            else{
+                char first = s[i];
+                i++;
+                while ( i < len && s[i] != ' ' ){
+                    sb.append(s[i]);
+                    i++;
+                }
+                sb.append(first);
+                sb.append("ma");
+                sb.append(lastappend.toString());
+                if ( i != len  ) sb.append(' ');
+            }// if-else ends
+        }// for-loop ends
+        return sb.toString();
+    }
+}
