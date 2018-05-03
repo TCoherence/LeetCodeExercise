@@ -74,4 +74,4 @@ BTW，如果有同学拿到了华为的offer，也还是要恭喜的，到时候
 >如果大家还有什么其他的问题也可以私聊我:  
 QQ:383916752  
 Email: 38391675@qq.com or tcoherence@gmail.com  
-WeChat:15051866368  
+WeChat:15051866368 or Broken_lines
