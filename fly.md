@@ -71,7 +71,7 @@ BTW，如果有同学拿到了华为的offer，也还是要恭喜的，到时候
 最后祝学弟学妹们能够在18申请季申请到自己心仪的学校！
 2018/05/02/  
 
-如果大家还有什么其他的问题也可以私聊我：  
-QQ:383916752  
-Email: 38391675@qq.com or tcoherence@gmail.com  
+如果大家还有什么其他的问题也可以私聊我:  
+QQ:383916752  
+Email: 38391675@qq.com or tcoherence@gmail.com  
 WeChat:15051866368  
