@@ -9,8 +9,8 @@ G: 318(149+169+3.5)
 主要希望能够给其他学习学妹一个警示作用吧，也希望平凡的我能够给大家散发散发我的余热。  
 
 ## 1. 申请季的结果  
-AD: CE@NWU(AC), MCS@UCI, CE(19Spring)@USC, EE(19Spring)@USC. 
-REJ: CS@NYU Tandon, CS37@USC, ECE@Gatech, EE@Columbia, ECE@Umich, ECE-CE@UCSD, CS-Aligh@NEU, ECE@UCSB, ECE@Duke
+**AD:** CE@NWU(AC), MCS@UCI, CE(19Spring)@USC, EE(19Spring)@USC.  
+**REJ:** CS@NYU Tandon, CS37@USC, ECE@Gatech, EE@Columbia, ECE@Umich, ECE-CE@UCSD, CS-Aligh@NEU, ECE@UCSB, ECE@Duke
 
 ### 1.1 申请出结果的时间线  
 |Num|School|Decision|Time|
@@ -18,17 +18,17 @@ REJ: CS@NYU Tandon, CS37@USC, ECE@Gatech, EE@Columbia, ECE@Umich, ECE-CE@UCSD, C
 |1|Gatech|REJ|2018.2.15|
 |2|NEU|REJ|2018.3.10|
 |3|Columbia|REJ|2018.3.11|
-|4|UCI|AD|2018.3.12|
-|5|NWU|AD|2018.3.30|
+|4|UCI|**AD**|2018.3.12|
+|5|NWU|**AD**|2018.3.30|
 |6|Duke|REJ|2018.4.5|
 |7|Umich|REJ|2018.4.7|
 |8|NYU-Tandon|REJ|2018.4.11|
 |9|UCSD|REJ|2018.4.14|
-|10|USC EE,CE|AD|2018.4.18|
+|10|USC EE,CE|**Spring AD**|2018.4.18|
 |11|USC CS37|REJ|2018.4.19|
 |12|UCSB|REJ|2018.5.2|
 
-至今还有一两所没有出结果，不过肯定是凉了，看我太菜了不想鸟我吧。ECE-Pittsburgh/ECE-SV @ CMU, sigh~
+至今还有一两所没有出结果，不过肯定是凉了，看我太菜了不想鸟我吧。ECE-Pittsburgh/ECE-SV @ CMU and ECE@Purdue, sigh~
 
 ## 2. 留学准备工作  
 ### 2.1 为啥出国呢  
