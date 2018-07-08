@@ -26,4 +26,38 @@ class Solution {
         maxlen = Math.max(tail - head, maxlen);
         return maxlen;
     }
+    
+    // a redo solution
+    public int lengthOfLongestSubstring(String s) {
+        // check para
+        
+        /* Two pointers, left and right, right moves forward to scan through the whole string, 
+         * every time it encounters a repeated char, update its index and maxlen, then left = repeating index + 1;
+         * Note that we can realize hashmap with a simple array.
+         */
+        int len = 0, maxLen = 0;
+        int left = 0, right = 0;
+        int[] character = new int[128];
+        Arrays.fill(character, -1);
+        while ( right < s.length() ) {
+            int index = s.charAt(right);
+            // repeating
+            if ( character[index] != -1 ) {
+                len = right - left;
+                maxLen = Math.max(len, maxLen);
+                left = Math.max(left, character[index] + 1); // key code!!! this code can avoid jump to the left of leftpointer.
+                character[index] = right;
+                
+            }
+            else{
+                character[index] = right;
+            }
+            right++;
+        }
+        
+        // if right reaches the rightest and leads to loop end, we need update maxLen again
+        maxLen = Math.max(maxLen, right - left);
+        return maxLen;
+    }
+    
 }
