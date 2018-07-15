@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         // check para
-        if ( n <= 0 || edges == null || edges.length == 0 || edges[0].length == 0 ) return new ArrayList<Integer>();
+        if ( n <= 0 || edges == null ) return new ArrayList<Integer>();
         
         if ( n == 1 ) return Collections.singletonList(0); // mistake one
         
