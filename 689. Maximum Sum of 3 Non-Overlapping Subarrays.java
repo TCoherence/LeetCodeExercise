@@ -10,7 +10,7 @@ class Solution {
         for ( int col = nums.length - k; col >= (NUM-1)*k; col-- ) {
             for ( int layer = 0, c = col; layer < NUM; layer++, c = c - k ) {
                 if ( layer == 0 ) {
-                    dp[layer][c] = acc(nums, c, k);
+                    dp[layer][c] = acc(nums, c, k); // redundant computation
                     m[layer] = Math.max(m[layer], acc(nums, c, k));
                 }
                 else {
@@ -19,7 +19,26 @@ class Solution {
                 }
             }
         }
-
+        // follow up///////////////
+        int[]   acc = new int[nums.length + 1];
+        for ( int idx = 0; idx < nums.length; idx++ ) {
+            sum += nums[idx];
+            acc[idx + 1] = sum;
+        }
+        
+        for ( int col = nums.length - k; col >= (NUM-1)*k; col-- ) {
+            for ( int layer = 0, c = col; layer < NUM; layer++, c = c - k ) {
+                if ( layer == 0 ) {
+                    dp[layer][c] = acc[c + k] - acc[c];
+                    m[layer] = Math.max(m[layer], acc[c + k] - acc[c]);
+                }
+                else {
+                    dp[layer][c] = m[layer - 1] + acc[c + k] - acc[c];
+                    m[layer] = Math.max(m[layer], dp[layer][c]);
+                }
+            }
+        }
+        ///////////////////////
         max = findMax(dp[NUM - 1]);
         int i = 0;
         // // print test
