@@ -21,5 +21,21 @@ class Solution {
         }
         return stack.empty();
     }
-        
+}
+
+// REDO
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for ( char c : s.toCharArray() ) {
+            if ( ( c == ')' && !stack.isEmpty() && stack.pop() == '(' ) || 
+                 ( c == '}' && !stack.isEmpty() && stack.pop() == '{' ) || 
+                 ( c == ']' && !stack.isEmpty() && stack.pop() == '[' ) ) {
+                continue;
+            }
+            stack.push(c);
+            
+        }
+        return stack.isEmpty();
+    }
 }
