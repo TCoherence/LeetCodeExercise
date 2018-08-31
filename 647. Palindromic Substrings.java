@@ -17,3 +17,24 @@ class Solution {
         }
     }
 }
+
+// Redo
+class Solution {
+    public int countSubstrings(String s) {
+        int cnt = 0; 
+        for ( int i = 0; i < s.length(); i++ ) {
+            cnt += helper(s, i, i);
+            cnt += helper(s, i, i + 1);
+        }
+        return cnt;
+    }
+    public int helper(String s, int lo, int hi) {
+        int cnt = 0;
+        while ( lo >= 0 && hi < s.length() && s.charAt(lo) == s.charAt(hi) ) {
+            lo--;
+            hi++;
+            cnt++;
+        }
+        return cnt;
+    }
+}
