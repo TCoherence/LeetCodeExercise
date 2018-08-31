@@ -30,3 +30,40 @@ class Solution {
         }
     }
 }
+
+// Redo
+class Solution {
+    public List<String> removeInvalidParentheses(String s) {
+        if ( s == null ) return new ArrayList<>();
+        List<String> res = new ArrayList<>();
+        dfs(s, 0, 0, '(', ')', res);
+        return res;
+    }
+    public void dfs(String s, int start, int checker, char open, char close, List<String> res) {
+        // it is really important to add checker /*param*/, to avoid del previous invalid parenthesis
+        if ( s == null ) return ;
+        int count = 0;
+        for ( int i = start; i < s.length(); i++ ) {
+            if ( s.charAt(i) == open ) count++;
+            if ( s.charAt(i) == close) count--;
+            // System.out.printf("i == %d, count == %d\n", i, count);
+            if ( count < 0 ) {
+                int j = checker;
+                while ( j <= i ) {
+                    // System.out.printf("j == %d, i == %d\n", j, i);
+                    if ( s.charAt(j) == close && ( j == 0 || s.charAt(j - 1) != close ) )
+                        dfs(s.substring(0, j) + s.substring(j + 1), i, j, open, close, res);
+                    j++;
+                }
+                return;
+            }
+        }
+        String reverse = new StringBuilder(s).reverse().toString();
+        if ( open == '(' ) {
+            dfs(reverse, 0, 0, close, open, res);
+        }
+        else
+            res.add(reverse);
+        
+    }
+}
