@@ -64,3 +64,93 @@ class LRUCache {
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+
+// redo
+class LRUCache {
+    private Map<Integer, DLNode>    map;
+    // private Map<Integer, Integer>   nodePair;
+    private DLNode                  head, tail;
+    private int                     capacity;
+    private int                     size;
+    
+    public LRUCache(int capacity) {
+        map = new HashMap<>();
+        head = new DLNode(-1, -1, null, null);
+        tail = new DLNode(-1, -1, null, null);
+        head.next = tail;
+        tail.prev = head;
+        this.capacity = capacity;
+        this.size = 0;
+    }
+    
+    public int get(int key) {
+        if ( !map.containsKey(key) ) return -1;
+        int ret = map.get(key).val;
+        moveToHead(map.get(key));
+        return ret;
+    }
+    
+    public void put(int key, int value) {
+        if ( map.containsKey(key) ) {
+            // update double-linked list and nodepairs
+            map.get(key).val = value;
+            moveToHead(map.get(key));
+        }
+        else {
+            if ( size < capacity ) {
+                size++;
+                DLNode toAdd = new DLNode(key, value, null, null);
+                add(toAdd);
+                map.put(key, toAdd);
+            }
+            else {
+                DLNode toDel = tail.prev;
+                DLNode toAdd = new DLNode(key, value, null, null);
+                delete(tail.prev);
+                map.remove(toDel.key);
+                add(toAdd);
+                map.put(key, toAdd);
+                
+            }
+        }
+    }
+    private void add(DLNode node) {
+        node.next = head.next;
+        head.next.prev = node;
+        node.prev = head;
+        head.next = node;
+    }
+    private void delete(DLNode node) {
+        DLNode prev = node.prev;
+        DLNode next = node.next;
+        prev.next = next;
+        next.prev = prev;
+    }
+    private void moveToHead(DLNode node) {
+        delete(node);
+        add(node);
+    }
+        
+        
+        
+        
+    private class DLNode {
+        private int     key;
+        private int     val;
+        private DLNode  prev;
+        private DLNode  next;
+        DLNode(int key, int val, DLNode prev, DLNode next) {
+            this.key = key;
+            this.val = val;
+            this.prev = prev;
+            this.next = next;
+        }
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
