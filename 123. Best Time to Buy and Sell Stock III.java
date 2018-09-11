@@ -72,3 +72,28 @@ class Solution {
         return soldAt[k];
     }
 }
+
+// Redo again
+class Solution {
+    public int maxProfit(int[] prices) {
+        return maxProfit(prices, 2);
+    }
+    public int maxProfit(int[] prices, int k) {
+        if ( prices == null || prices.length == 0 ) return 0;
+        
+        int[] hold = new int[k + 1];
+        int[] sold = new int[k + 1];
+        Arrays.fill(hold, Integer.MIN_VALUE);
+        Arrays.fill(sold, Integer.MIN_VALUE);
+        hold[0] = 0;
+        sold[0] = 0;
+        // initializing computing array, dp solution
+        for ( int price : prices ) {
+            for ( int i = 1; i <= k; i++ ) {
+                hold[i] = Math.max(hold[i], sold[i - 1] - price);
+                sold[i] = Math.max(sold[i], hold[i] + price);
+            }
+        }
+        return sold[k];
+    }
+}
