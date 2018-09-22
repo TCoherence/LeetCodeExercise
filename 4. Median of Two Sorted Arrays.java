@@ -34,3 +34,46 @@ class Solution {
         return (maxleft+minright) / 2.0;
     }
 }
+
+// Redo 
+class Solution {
+    public double findMedianSortedArrays(int[] A, int[] B) {
+        if ( A == null || B == null ) return 0.0; // be careful about empty array.
+        
+        if ( A.length > B.length ) {
+            int[] tmp = A;
+            A = B;
+            B = tmp;
+        }
+        int m = A.length, n = B.length;
+        int iMin = 0, iMax = m, i = -1, j = -1;
+        int half = (m + n + 1) / 2; // this indicates that when m plus n is odd the left part will 
+                                    // have one more number than the right part;
+        int maxLeft = 0, minRight = 0;
+        while ( iMin <= iMax ) {
+            i = iMin + (iMax - iMin) / 2;
+            j = half - i;
+            if ( i > 0 && A[i - 1] > B[j] ) {
+                iMax = i - 1;
+            }
+            else if ( i < m && B[j - 1] > A[i] ) {
+                iMin = i + 1;
+            }
+            else {
+                if ( i == 0 ) maxLeft = B[j - 1];
+                else if ( j == 0 ) maxLeft = A[i - 1];
+                else maxLeft = Math.max(A[i - 1], B[j - 1]);
+                
+                if ( ((m + n) & 1) == 1 ) return maxLeft;
+                
+                if ( i == m ) minRight = B[j];
+                else if ( j == n ) minRight = A[i];
+                else minRight = Math.min(A[i], B[j]);
+                
+                return (maxLeft + minRight) / 2.0;
+                
+            }
+        }
+        return -1;
+    }
+}
