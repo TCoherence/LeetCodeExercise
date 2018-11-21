@@ -27,7 +27,7 @@ class Solution {
         return res;
     }
     
-    // two loop solution
+    // two loop solution, using map
     public List<Integer> partitionLabels(String S) {
         if ( S == null || S.length() == 0 ) return new ArrayList<>();
         
@@ -36,7 +36,6 @@ class Solution {
         for ( int i = 0; i < S.length(); i++ ) {
             map.put(S.charAt(i), i);
         }
-        
         int start = 0, end = 0;
         for ( int i = 0; i < S.length(); i++ ) {
             end = Math.max(end, map.get(S.charAt(i)));
@@ -45,7 +44,26 @@ class Solution {
                 start = end + 1;
             }
         }
+        return res;
+    }
+    
+    // two loop solution, using array
+    public List<Integer> partitionLabels(String S) {
+        if ( S == null || S.length() == 0 ) return new ArrayList<>();
         
+        List<Integer> res = new ArrayList<>();
+        int[] lastIndexOf = new int[26];
+        for ( int i = 0; i < S.length(); i++ ) {
+            lastIndexOf[S.charAt(i) - 'a'] = i;
+        }
+        int start = 0, end = 0;
+        for ( int i = 0; i < S.length(); i++ ) {
+            end = Math.max(end, lastIndexOf[S.charAt(i) - 'a']);
+            if ( i == end ) {
+                res.add(end - start + 1);
+                start = end + 1;
+            }
+        }
         return res;
     }
 }
